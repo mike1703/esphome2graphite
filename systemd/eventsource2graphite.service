@@ -1,0 +1,13 @@
+[Unit]
+Description=ESP Home EventSource to Graphite Bridge
+After=network.target
+
+[Service]
+ExecStart=/home/michael/.cargo/bin/eventsource2graphite --eventsource-url <your_esphome_device_url> --graphite-server <your_graphite_server_address> --prefix <your_metric_prefix>
+Restart=on-failure
+RestartSec=5s
+StartLimitInterval=60s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target
