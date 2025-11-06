@@ -64,6 +64,9 @@ fn rewrite_sensor_name(name: &str) -> String {
     if name == "water_level" {
         return "water_level.water_level".to_string();
     }
+    if name == "water_level_voltage" {
+        return "water_level.voltage".to_string();
+    }
     name.replace("-", ".").replace("_", ".")
 }
 
